@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card-body shadow">
+            <h5 class="card-title">{{obj.name}}</h5>
+            <p class="card-text">{{obj.priority}}</p>
+              <p class="card-text">{{obj.date}}</p>
+              <form method="post" action="{% url 'delete' obj.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Done</button>
+                  <a href="{% url 'edit' obj.id %}" class="btn btn-success">Edit</a>
+              </form>
+
+</div>
+
+{% endblock %}
